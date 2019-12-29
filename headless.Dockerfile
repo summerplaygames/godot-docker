@@ -20,13 +20,14 @@
 
 FROM ubuntu:bionic
 
-RUN apt-get update -y && apt-get install -y unzip && apt-get install -y wget
+RUN apt-get update -y && apt-get install -y unzip && apt-get install -y wget && apt-get install -y cpio
+
+RUN mkdir -p $HOME/.local/share/godot
+
+RUN wget https://downloads.tuxfamily.org/godotengine/3.1.2/Godot_v3.1.2-stable_export_templates.tpz
+
+RUN unzip Godot_v3.1.2-stable_export_templates.tpz -d $HOME/.local/share/godot/
 
 RUN wget https://downloads.tuxfamily.org/godotengine/3.1.2/Godot_v3.1.2-stable_linux_headless.64.zip
 
 RUN unzip Godot_v3.1.2-stable_linux_headless.64.zip && mv Godot_v3.1.2-stable_linux_headless.64 /usr/bin/godot-headless && rm Godot_v3.1.2-stable_linux_headless.64.zip
-
-
-
-
-
