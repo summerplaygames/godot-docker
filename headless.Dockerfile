@@ -2,7 +2,7 @@
 #  Created on Fri Dec 27 2019
 # 
 #  The MIT License (MIT)
-#  Copyright (c) 2019 SummerPlay
+#  Copyright (c) 2019-2020 SummerPlay
 # 
 #  Permission is hereby granted, free of charge, to any person obtaining a copy of this software
 #  and associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -22,12 +22,14 @@ FROM ubuntu:bionic
 
 RUN apt-get update -y && apt-get install -y unzip && apt-get install -y wget && apt-get install -y cpio
 
-RUN mkdir -p $HOME/.local/share/godot
+RUN mkdir -p $HOME/.local/share/godot/templates/3.2.3.stable
 
-RUN wget https://downloads.tuxfamily.org/godotengine/3.2/Godot_v3.2-stable_export_templates.tpz
+RUN wget https://downloads.tuxfamily.org/godotengine/3.2.3/Godot_v3.2.3-stable_export_templates.tpz
 
-RUN unzip Godot_v3.2-stable_export_templates.tpz -d $HOME/.local/share/godot/
+RUN unzip Godot_v3.2.3-stable_export_templates.tpz -d /tmp
 
-RUN wget https://downloads.tuxfamily.org/godotengine/3.2/Godot_v3.2-stable_linux_headless.64.zip
+RUN mv /tmp/templates/* $HOME/.local/share/godot/templates/3.2.3.stable
 
-RUN unzip Godot_v3.2-stable_linux_headless.64.zip && mv Godot_v3.2-stable_linux_headless.64 /usr/bin/godot-headless && rm Godot_v3.2-stable_linux_headless.64.zip
+RUN wget https://downloads.tuxfamily.org/godotengine/3.2.3/Godot_v3.2.3-stable_linux_headless.64.zip
+
+RUN unzip Godot_v3.2.3-stable_linux_headless.64.zip && mv Godot_v3.2.3-stable_linux_headless.64 /usr/bin/godot-headless && rm Godot_v3.2.3-stable_linux_headless.64.zip
