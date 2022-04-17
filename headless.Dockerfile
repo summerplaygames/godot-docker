@@ -22,14 +22,14 @@ FROM ubuntu:bionic
 
 RUN apt-get update -y && apt-get install -y unzip && apt-get install -y wget && apt-get install -y cpio
 
-RUN mkdir -p $HOME/.local/share/godot/templates/3.3.2.stable
+RUN mkdir -p $HOME/.local/share/godot/templates/3.4.4.stable
 
-RUN wget https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_export_templates.tpz
+RUN wget https://downloads.tuxfamily.org/godotengine/3.4.4/Godot_v3.4.4-stable_export_templates.tpz
 
-RUN unzip Godot_v3.3.2-stable_export_templates.tpz -d /tmp
+RUN unzip Godot_v3.4.4-stable_export_templates.tpz -d /tmp
 
-RUN mv /tmp/templates/* $HOME/.local/share/godot/templates/3.3.2.stable
+RUN mv /tmp/templates/* $HOME/.local/share/godot/templates/3.4.4.stable
 
-RUN wget https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_linux_headless.64.zip
+RUN wget https://downloads.tuxfamily.org/godotengine/3.4.4/Godot_v3.4.4-stable_linux_headless.64.zip
 
-RUN unzip Godot_v3.3.2-stable_linux_headless.64.zip && mv Godot_v3.3.2-stable_linux_headless.64 /usr/bin/godot-headless && rm Godot_v3.3.2-stable_linux_headless.64.zip
+RUN unzip Godot_v3.4.4-stable_linux_headless.64.zip && mv Godot_v3.4.4-stable_linux_headless.64 /usr/bin/godot-headless && rm Godot_v3.4.4-stable_linux_headless.64.zip

@@ -22,9 +22,9 @@ FROM ubuntu:bionic
 
 RUN apt-get update -y && apt-get install -y unzip && apt-get install -y wget
 
-RUN wget https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_linux_server.64.zip
+RUN wget https://downloads.tuxfamily.org/godotengine/3.4.4/Godot_v3.4.4-stable_linux_server.64.zip
 
-RUN unzip Godot_v3.3.2-stable_linux_server.64.zip && mv Godot_v3.3.2-stable_linux_server.64 /usr/bin/godot-server && rm Godot_v3.3.2-stable_linux_server.64.zip
+RUN unzip Godot_v3.4.4-stable_linux_server.64.zip && mv Godot_v3.4.4-stable_linux_server.64 /usr/bin/godot-server && rm Godot_v3.4.4-stable_linux_server.64.zip
 
 
 
